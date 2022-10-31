@@ -1,0 +1,28 @@
+.bandeau{
+    width: 50%;
+}
+
+.presentation{
+    text-align: center;
+}
+
+#beginGame{
+    background-color: bisque;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#checkPropalButton{
+    background-color: bisque;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.proposition{
+    text-align: center;
+}
+
+#resultFin{
+    text-align: center;
+    font-weight: bold;
+}
