@@ -34,6 +34,8 @@ function checkPropal(){
     }
     else if(numberPropal == NumberToFind){
         resultDiv.innerHTML+="<br>" + numberPropal + ":C'est gagné";
+        let audio = new Audio("./applaudissements.mp3");
+        audio.play();
     
     }
 }
