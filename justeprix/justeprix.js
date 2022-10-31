@@ -33,13 +33,13 @@ function checkPropal(){
     nbTentative+=1;
     let numberPropal = document.getElementById("userPropalInput").value;
     if(numberPropal>NumberToFind){
-        resultDiv.innerHTML +="<br> tentative " + nbTentative+ " :" + numberPropal + ": C'est moins";
+        resultDiv.innerHTML +="<br> tentative " + nbTentative+ " :" + numberPropal + ": C'est moins !";
     }
     else if(numberPropal<NumberToFind){
-        resultDiv.innerHTML+="<br> tentative " + nbTentative+ " :"+ numberPropal + ":C'est plus";
+        resultDiv.innerHTML+="<br> tentative " + nbTentative+ " :"+ numberPropal + ":C'est plus !";
     }
     else if(numberPropal == NumberToFind){
-        resultFin.innerHTML="Réussite en " + nbTentative + " essais <br>" + numberPropal + ":C'est gagné";
+        resultFin.innerHTML="Réussite en " + nbTentative + " essais <br>" + numberPropal + ":C'est gagné !";
         resultFin.innerHTML+="<br><img src='./c-est-la-fete-emoji.gif'>"
         let audio = new Audio("./applaudissements.mp3");
         audio.play();
