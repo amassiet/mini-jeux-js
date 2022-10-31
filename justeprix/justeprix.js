@@ -2,29 +2,38 @@
 // l'utilisateur donne des nombres
 
 let NumberToFind = 0;
+const resultDiv=document.getElementById("resultDiv");
 
 document.getElementById("beginGame").addEventListener("click", function(){
     NumberToFind=getRandomInt(1000);
     alert(NumberToFind);
 })
 
-document.getElementById("propal").addEventListener("click", function(){
+document.getElementById("checkPropalButton").addEventListener("click", function(){
     checkPropal();
+})
+
+document.getElementById("userPropalInput").addEventListener("keyup", function(event){
+    if(event.key =="Enter"){
+    checkPropal();
+    }
 })
 
 function getRandomInt(max){
     return Math.floor(Math.random()*max);
 }
 
+
 function checkPropal(){
-    if(numberToTest>NumberToFind){
-        console.log("Cest moins");
+    let numberPropal = document.getElementById("userPropalInput").value;
+    if(numberPropal>NumberToFind){
+        resultDiv.innerHTML +="<br>" + numberPropal + ": C'est moins";
     }
-    else if(numberToTest<NumberToFind){
-        console.log("Cest plus");
+    else if(numberPropal<NumberToFind){
+        resultDiv.innerHTML+="<br>" + numberPropal + ":C'est plus";
     }
-    else if(numberToTest === NumberToFind){
-            console.log("Cest gagné")
+    else if(numberPropal == NumberToFind){
+        resultDiv.innerHTML+="<br>" + numberPropal + ":C'est gagné";
     
     }
 }
