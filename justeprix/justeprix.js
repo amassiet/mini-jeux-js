@@ -38,8 +38,9 @@ function checkPropal(){
         resultDiv.innerHTML+="<br> tentative " + nbTentative+ " :"+ numberPropal + ":C'est plus !";
     }
     else if(numberPropal == NumberToFind){
+        endGame();
         resultFin.innerHTML="Réussite en " + nbTentative + " essais <br>" + numberPropal + ":C'est gagné !";
-        resultFin.innerHTML+="<br><img src='./c-est-la-fete-emoji.gif'>"
+        resultFin.innerHTML+="<br><img src='./c-est-la-fete-emoji.gif'>";
         let audio = new Audio("./applaudissements.mp3");
         audio.play();
         
@@ -74,8 +75,8 @@ function launchGame(){
             reboursDiv.classList.add("danger");
         }
         else if (tempsRestant<0){
-            clearInterval(compteurInterval);
-            resultFin.innerHTML ="Perdu";
+            endGame();
+            resultFin.innerHTML ="Perdu après " + nbTentative +" essais";
         };
     },1000);
     nbTentative= 0;
@@ -85,5 +86,8 @@ function launchGame(){
 }
 
 function endGame(){
-
+    clearInterval(compteurInterval);
+    reboursDiv.innerText = "" ;
+    resultDiv.innerHTML ="";
+    
 }

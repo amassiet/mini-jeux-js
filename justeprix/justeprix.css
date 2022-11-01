@@ -29,7 +29,9 @@
 }
 
 #compte_a_rebours{
-    font-size: 50px;
+    text-align: center;
+    width: 200px;
+    font-size: 200px;
     transition:0.2s;
     display: inline-block;
 }
@@ -41,30 +43,30 @@
 
 .cool{
     color: green;
-    animation: suspens 1s infinite;
+    font-size: 150px;
 }
 
 .warning{
     color: orange;
-    animation: suspens 1s infinite;
+    font-size: 180px;
 }
 
 @keyframes suspens{
     0% 100%{
         /*transform: rotate(0deg);*/
-        font-size: 50px;
+        font-size: 200px;
     }
     25%{
         /*transform: rotate(-30deg);*/
-        font-size: 60px;
+        font-size: 220px;
     }
     50%{
         /*transform: rotate(0deg);*/
-        font-size: 50px;
+        font-size: 200px;
     }
     75%{
         /*transform: rotate(30deg);*/
-        font-size: 40px;
+        font-size: 180px;
     }
 
 }
