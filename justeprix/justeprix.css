@@ -27,3 +27,48 @@
     text-align: center;
     font-weight: bold;
 }
+
+#compte_a_rebours{
+    font-size: 50px;
+    transition:0.2s;
+    display: inline-block;
+}
+
+.danger{
+    color: red;
+    animation: suspens 1s infinite;
+}
+
+.cool{
+    color: green;
+    animation: suspens 1s infinite;
+}
+
+.warning{
+    color: orange;
+    animation: suspens 1s infinite;
+}
+
+@keyframes suspens{
+    0% 100%{
+        /*transform: rotate(0deg);*/
+        font-size: 50px;
+    }
+    25%{
+        /*transform: rotate(-30deg);*/
+        font-size: 60px;
+    }
+    50%{
+        /*transform: rotate(0deg);*/
+        font-size: 50px;
+    }
+    75%{
+        /*transform: rotate(30deg);*/
+        font-size: 40px;
+    }
+
+}
+
+.container{
+    display: flex;
+}

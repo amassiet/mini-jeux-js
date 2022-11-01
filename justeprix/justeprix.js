@@ -4,15 +4,14 @@
 let NumberToFind = 0;
 const resultDiv=document.getElementById("resultDiv");
 const resultFin=document.getElementById("resultFin");
+const reboursDiv=document.getElementById("compte_a_rebours");
 let nbTentative = 0;
+let tempsRestant=0;
+let compteurInterval = null;
 
 document.getElementById("beginGame").addEventListener("click", function(){
-    NumberToFind=getRandomInt(1000);
-    nbTentative= 0;
-    resultDiv.innerHTML =""
-    resultFin.innerHTML =""
-    alert(NumberToFind);
-})
+    launchGame();
+});
 
 document.getElementById("checkPropalButton").addEventListener("click", function(){
     checkPropal();
@@ -48,4 +47,43 @@ function checkPropal(){
     }
     document.getElementById("userPropalInput").value = "";
     console.log(nbTentative);
+}
+
+function launchGame(){
+    NumberToFind=getRandomInt(1000);
+    tempsRestant = 30;
+    if(compteurInterval!= null){
+        clearInterval(compteurInterval);
+    }
+    compteurInterval = setInterval(()=>{
+        reboursDiv.innerText = tempsRestant ;
+        tempsRestant--;
+        if(tempsRestant>=20){
+            reboursDiv.classList.remove("danger");
+            reboursDiv.classList.remove("warning");
+            reboursDiv.classList.add("cool");
+        }
+        else if(tempsRestant>=10){
+            reboursDiv.classList.remove("danger");
+            reboursDiv.classList.remove("cool");
+            reboursDiv.classList.add("warning");
+        }
+        else if(tempsRestant>=0){
+            reboursDiv.classList.remove("cool");
+            reboursDiv.classList.remove("warning");
+            reboursDiv.classList.add("danger");
+        }
+        else if (tempsRestant<0){
+            clearInterval(compteurInterval);
+            resultFin.innerHTML ="Perdu";
+        };
+    },1000);
+    nbTentative= 0;
+    resultDiv.innerHTML =""
+    resultFin.innerHTML =""
+    //alert(NumberToFind);
+}
+
+function endGame(){
+
 }
