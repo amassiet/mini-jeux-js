@@ -5,6 +5,7 @@ let NumberToFind = 0;
 const resultDiv=document.getElementById("resultDiv");
 const resultFin=document.getElementById("resultFin");
 const reboursDiv=document.getElementById("compte_a_rebours");
+const propal=document.getElementById("propal");
 let nbTentative = 0;
 let tempsRestant=0;
 let compteurInterval = null;
@@ -52,6 +53,7 @@ function checkPropal(){
 
 function launchGame(){
     NumberToFind=getRandomInt(1000);
+    propal.style.display = 'block';
     tempsRestant = 30;
     if(compteurInterval!= null){
         clearInterval(compteurInterval);
@@ -73,10 +75,15 @@ function launchGame(){
             reboursDiv.classList.remove("cool");
             reboursDiv.classList.remove("warning");
             reboursDiv.classList.add("danger");
+            let audio = new Audio("./bip.mp3");
+            audio.play();
         }
         else if (tempsRestant<0){
             endGame();
             resultFin.innerHTML ="Perdu après " + nbTentative +" essais";
+            resultFin.innerHTML+="<br><img src='./sobbing.gif'>";
+            let audio = new Audio("./rire.mp3");
+            audio.play();
         };
     },1000);
     nbTentative= 0;
@@ -87,6 +94,7 @@ function launchGame(){
 
 function endGame(){
     clearInterval(compteurInterval);
+    propal.style.display = 'none';
     reboursDiv.innerText = "" ;
     resultDiv.innerHTML ="";
     

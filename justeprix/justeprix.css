@@ -13,6 +13,10 @@
     padding: 10px;
 }
 
+#propal{
+    display: none;
+}
+
 #checkPropalButton{
     background-color: bisque;
     border-radius: 5px;
@@ -26,6 +30,8 @@
 #resultFin{
     text-align: center;
     font-weight: bold;
+    color: crimson;
+    animation: finale 2s infinite;
 }
 
 #compte_a_rebours{
@@ -73,4 +79,14 @@
 
 .container{
     display: flex;
+    justify-content: space-around;
+}
+
+@keyframes finale{
+    0%{
+font-size: 15px;
+    }
+    100%{
+        font-size: 50px;
+    }
 }
