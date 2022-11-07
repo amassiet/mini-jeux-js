@@ -6,6 +6,7 @@ const resultDiv=document.getElementById("resultDiv");
 const resultFin=document.getElementById("resultFin");
 const reboursDiv=document.getElementById("compte_a_rebours");
 const propal=document.getElementById("propal");
+const userPropalInput=document.getElementById("userPropalInput");
 let nbTentative = 0;
 let tempsRestant=0;
 let compteurInterval = null;
@@ -53,6 +54,7 @@ function checkPropal(){
 
 function launchGame(){
     NumberToFind=getRandomInt(1000);
+    
     propal.style.display = 'block';
     tempsRestant = 30;
     if(compteurInterval!= null){
@@ -95,6 +97,7 @@ function launchGame(){
 function endGame(){
     clearInterval(compteurInterval);
     propal.style.display = 'none';
+    userPropalInput.value = '';
     reboursDiv.innerText = "" ;
     resultDiv.innerHTML ="";
     
