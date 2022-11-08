@@ -15,6 +15,9 @@ const keyBoardDiv = document.getElementById("keyBoard");
 let wordToFind="";
 let wordToFindArray="";
 let cptErreur = 0;
+let cptLettreTrouvee = 0;
+const cptErreurDiv=document.getElementById("cptErreur");
+let imgPendu = document.getElementById("imagePendu");
 
 buttonPlay.addEventListener("click", function(){
     beginGame();
@@ -22,6 +25,11 @@ buttonPlay.addEventListener("click", function(){
 
 function beginGame(){
     // Générer un mot aléatoire
+    cptErreur = 0;
+    cptErreurDiv.innerHTML = "";
+    imgPendu.className="";
+    imgPendu.classList.add("etat"+cptErreur);
+    cptLettreTrouvee=0;
     wordToFindDiv.innerHTML = "";
     wordToFind = generateWord();
     //wordToFindDiv.innerHTML = wordToFind;
@@ -59,12 +67,33 @@ function generateKeyBoard(){
                 Array.from(allTdOfWord).forEach(td => {
                     if (td.dataset.letter == letter){
                         td.innerHTML = letter;
+                        cptLettreTrouvee++;
                     }
                 });
+
+                if(cptLettreTrouvee==wordToFindArray.length){
+                    keyBoardDiv.innerHTML = "";
+                    cptErreurDiv.innerHTML = "Gagné avec " + cptErreur +" erreur(s)";
+                };
             }
             else{
                 cptErreur++;
-                document.getElementById("cptErreur").innerHTML = cptErreur;
+                cptErreurDiv.innerHTML = cptErreur;
+                
+                imgPendu.className="";
+                imgPendu.classList.add("etat"+cptErreur);
+                if(cptErreur == 4){
+                    cptErreurDiv.innerHTML = "Perdu!";
+                    let lineWord = document.getElementById("lineOfWord");
+                    let allTdOfWord = lineWord.children;
+
+                    Array.from(allTdOfWord).forEach(td => {
+                    
+                        td.innerHTML = td.dataset.letter;
+                    
+                });
+                keyBoardDiv.innerHTML = "";
+                }
             };
 
             lettreDiv.style.visibility = 'hidden';

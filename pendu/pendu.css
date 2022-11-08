@@ -25,3 +25,26 @@ table{
     border: 1px solid gray;
     margin: 2px;
 }
+
+#imagePendu{
+    background: url("pendu.jpg");
+    width: 120px;
+    height: 140px;
+    margin: 10px auto;
+}
+
+#imagePendu.etat0{
+    background-position: 1768px -56px;
+}
+#imagePendu.etat1{
+    background-position: 1576px -56px;
+}
+#imagePendu.etat2{
+    background-position: 1379px -56px;
+}
+#imagePendu.etat3{
+    background-position: 1768px -246px;
+}
+#imagePendu.etat4{
+    background-position: 1576px -246px;
+}
