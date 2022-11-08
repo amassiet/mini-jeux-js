@@ -12,6 +12,9 @@ const buttonPlay = document.getElementById("beginGame");
 const allWords =["ministre", "constitution", "congolais","prisonnier","chomage", "economie","corrompre", "sapeur"];
 const wordToFindDiv = document.getElementById("wordToFindDiv");
 const keyBoardDiv = document.getElementById("keyBoard");
+let wordToFind="";
+let wordToFindArray="";
+let cptErreur = 0;
 
 buttonPlay.addEventListener("click", function(){
     beginGame();
@@ -20,11 +23,12 @@ buttonPlay.addEventListener("click", function(){
 function beginGame(){
     // Générer un mot aléatoire
     wordToFindDiv.innerHTML = "";
-    let wordToFind = generateWord();
+    wordToFind = generateWord();
     //wordToFindDiv.innerHTML = wordToFind;
-    let wordToFindArray = Array.from(wordToFind);
+    wordToFindArray = Array.from(wordToFind);
     let table = document.createElement("table");
     let line = document.createElement("tr");
+    line.id = "lineOfWord"
     
     wordToFindArray.forEach(letter =>{
         let td = document.createElement("td");
@@ -46,7 +50,26 @@ function generateKeyBoard(){
         lettreDiv.innerHTML = letter;
         lettreDiv.classList.add("letterKeyBoard");
         keyBoardDiv.appendChild(lettreDiv);
-    })
+
+        lettreDiv.addEventListener('click',()=>{
+            if(checkLetterInWord(letter)){
+                let lineWord = document.getElementById("lineOfWord");
+                let allTdOfWord = lineWord.children;
+
+                Array.from(allTdOfWord).forEach(td => {
+                    if (td.dataset.letter == letter){
+                        td.innerHTML = letter;
+                    }
+                });
+            }
+            else{
+                cptErreur++;
+                document.getElementById("cptErreur").innerHTML = cptErreur;
+            };
+
+            lettreDiv.style.visibility = 'hidden';
+        });
+    });
 };
 
 function generateAlphabet(capital = false){
@@ -71,4 +94,14 @@ function generateWord(){
 
 function getRandomInt(max){
     return Math.floor(Math.random() * max);
+};
+
+function checkLetterInWord(letter){
+    let isInWord = false
+    wordToFindArray.forEach(letterOfWord => {
+        if(letterOfWord == letter){
+            isInWord = true;
+        };
+    });
+    return isInWord;
 };
