@@ -1,0 +1,27 @@
+main{
+    max-width: 500px;
+    margin: auto;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+}
+
+#keyBoard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#keyBoard .letterKeyBoard{
+    
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid gray;
+    margin: 2px;
+}
