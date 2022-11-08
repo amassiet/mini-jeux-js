@@ -27,24 +27,30 @@ table{
 }
 
 #imagePendu{
-    background: url("pendu.jpg");
+    background: url("Le-Pendu.png");
     width: 120px;
     height: 140px;
     margin: 10px auto;
 }
 
 #imagePendu.etat0{
-    background-position: 1768px -56px;
+    background-position: 1824px -80px;
 }
 #imagePendu.etat1{
-    background-position: 1576px -56px;
+    background-position: 1615px -80px;
 }
 #imagePendu.etat2{
-    background-position: 1379px -56px;
+    background-position: 1400px -80px;
 }
 #imagePendu.etat3{
-    background-position: 1768px -246px;
+    background-position: 1185px -80px;
 }
 #imagePendu.etat4{
-    background-position: 1576px -246px;
+    background-position: 1831px -310px;
+}
+#imagePendu.etat5{
+    background-position: 1626px -310px;
+}
+#imagePendu.etat6{
+    background-position: 1413px -310px;
 }

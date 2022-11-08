@@ -9,7 +9,12 @@ afficher des lettres visibles en fonction de la difficlultés
 
 
 const buttonPlay = document.getElementById("beginGame");
-const allWords =["ministre", "constitution", "congolais","prisonnier","chomage", "economie","corrompre", "sapeur"];
+const allWords =["ministre", "constitution", "congolais","prisonnier","chomage", "economie","corrompre", "sapeur", "Abeille",
+"Baleine","Cachalot","Cerf","Chat","Chevre","Chien","Cigale","Coq","Cygne","Dauphin","Dindon","Dromadaire","Girafe","Gorille","Grenouille","Herisson","Hyene","Hippopotame","Koala","Kangourou","Lama","Lezard","Lievre","Lion","Loup","Morse","Ours","Otarie","Panda","Paresseux","Pélican","Phoque","Poisson","Raton laveur","Requin","Rhinoceros","Sanglier","Sauterelle","Serpent","Suricate",
+"Tapir","Toucan","Tigre","Zebre", "Jupiter",
+"Tubes","Sept","Peste","Virus","Tendre","Cuisine","Toile","Aspirine","Cendres",
+"Gentil","Burger","Tomate","Facile","Marche","Rayon","Ombre","Vocal","Viande","Surf","Crayon","Sablier","Flotteur","Tombe","emeute","Bijou","Statue","Lotus","Seringue","Souffrir","Anchois","Verser","Susciter","Province","occuper","Sculpter","Antilope","Missile","Palette","Ananas","Vapeur","Africain","Couronne","Contamination","Imposition","Masseuse","Appeau","Marathon","Puce","Abri"
+];
 const wordToFindDiv = document.getElementById("wordToFindDiv");
 const keyBoardDiv = document.getElementById("keyBoard");
 let wordToFind="";
@@ -32,6 +37,8 @@ function beginGame(){
     cptLettreTrouvee=0;
     wordToFindDiv.innerHTML = "";
     wordToFind = generateWord();
+    wordToFind = wordToFind.toLowerCase();
+    console.log(wordToFind);
     //wordToFindDiv.innerHTML = wordToFind;
     wordToFindArray = Array.from(wordToFind);
     let table = document.createElement("table");
@@ -82,7 +89,7 @@ function generateKeyBoard(){
                 
                 imgPendu.className="";
                 imgPendu.classList.add("etat"+cptErreur);
-                if(cptErreur == 4){
+                if(cptErreur == 6){
                     cptErreurDiv.innerHTML = "Perdu!";
                     let lineWord = document.getElementById("lineOfWord");
                     let allTdOfWord = lineWord.children;
